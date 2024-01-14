@@ -1,52 +1,97 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+  
+
 /* Setup */
 :root {
-    --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-header: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* --font-header: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+
+    --font-header: 'DM Serif Display', Serif;
+    --font-body: 'Montserrat', 'Segoe UI', sans-serif;
 
     /* --bg: white;
 
     --text: black;
     --alt-text: gray;
     --link: green; */
+
+    --border: rgba(75, 75, 75, 0.8);
+    --accent: rgb(0, 110, 255);
+    --accent-light: hsl(from var(--accent) h s 64%); 
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; }
 body {
     margin: 0;
     font-size: 13pt;
     font-family: var(--font-body);
+    font-weight: 250;
 
     color: white;
-    background-color: #24263b;
+    /* background-color: #24263b; */
+    background-color: black;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-header);
+    line-height: 1.1em;
+    margin-bottom: 10px;
+    font-weight: 500;
 }
 button {
     font-family: var(--font-body);
     font-size: 13pt;
-    padding: 4px 16px;
+    font-weight: bold;
+
+    color: white;
+    padding: 10px 24px 10px;
     border: none;
-    background-color: transparent;
+    border-radius: 4px;
+    background-color: white;
+
     position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
+button:hover,
+button:focus-visible {
+    z-index: 1;
+    /* transform: scale(1.05, 1.05); */
+    color: black;
+}
+button > span { z-index: 2; }
 button::before {
     content: "";
     position: absolute;
-    background-color: rgb(245, 188, 0);
+    /* z-index: -1; */
     top:0;right:0;bottom:0;left:0;
-    z-index: -1;
-    transform: skew(-8deg);
+    transform: none;
+
+    background-color: var(--accent);
+    /* opacity: 0; */
+    transition-property: transform, opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
-button:hover, button:focus-visible {
-    z-index: 1;
-    /* transform: scale(1.05, 1.05); */
+
+button:hover::before,
+button:focus-visible::before {
+    transform: scale(0.3);
+    /* opacity: 1; */
+    transition-duration: 0.1s;
+    /* mix-blend-mode: screen; */
 }
 
 /* Shorthand */
 .container {
-    max-width: 1000px;
+    --container-width: 1100px;
+
+    max-width: var(--container-width);
     margin: 0 auto;
+    padding: 0 10px;
+}
+.col {
+    width: 100%;
 }
 .flex { display: flex; }
 .alt_text { color: var(--alt-text); }
@@ -54,5 +99,198 @@ button:hover, button:focus-visible {
 
 /* Nav */
 #nav {
+    top: 0; left: 0; right: 0;
+    position: fixed;
+    z-index: 10;
 
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    padding: 20px 0;
+
+    transition-property: background-color, border-color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+#nav.nav_opaque {
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    background-color: rgba(20, 20, 20, 0.6);
+    border-color: var(--border);
+}
+#nav .nav_list {
+    display: flex;
+}
+#logo {
+    font-family: var(--font-header);
+    margin-top: -9px;
+    font-size:20pt;
+    margin-right: 20px;
+    text-decoration: none !important;
+    border-color: transparent !important;
+}
+#nav a {
+    display: block;
+    position: relative;
+
+    color: white;
+    text-decoration: none;
+    font-weight: 450;
+    line-height: 200%;
+
+    opacity: 0.7;
+    padding: 0px 14px;
+    border-bottom: 1px solid transparent;
+    height: 36px;
+}
+#nav a:hover,
+#nav a:focus-visible {
+    opacity: 1;
+    /* text-decoration: underline; */
+    border-color: var(--border);
+    outline: none;
+}
+.nav_list a::before {
+    content: "";
+    position: absolute;
+    left: 50%; top: -8px;
+    transform: translateX(-50%) scaleY(0.6);
+    z-index: -1;
+    opacity: 0;
+
+    width: 100px;
+    height: 70px;
+    background: radial-gradient(ellipse at center, var(--accent-light) 0%, rgba(32, 128, 255, 0.25) 50%, transparent 70%);
+
+    transition: opacity, 0.5s ease;
+}
+.nav_list a:hover::before,
+.nav_list a:focus-visible::before {
+    opacity: 0.15;
+    transition: opacity, 0.2s ease;
+}
+#nav #cta {
+    margin-left: auto;
+}
+
+/* Main */
+#main {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.83) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%),
+        url(/images/placeholder.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    will-change: background-position-y;
+}
+.main_inner {
+    --container-width: 1164px;
+    /* background-color: rgb(62, 75, 40); */
+
+    align-items: center;
+    min-height: 100vh;
+}
+.main_inner > .col {
+    padding: 32px;
+    height: fit-content;
+}
+/* About */
+#about {
+    /* background: rgba(0, 0, 0, 0.4); */
+    /* -webkit-backdrop-filter: blur(25px); */
+    /* backdrop-filter: blur(25px); */
+    /* border-radius: 10px; */
+    /* border: 1px solid rgb(144, 151, 255); */
+    /* box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); */
+
+    width: 2000px; /* Flexbox weirdness, maybe don't leave at 2000px */
+    padding-right: 30px;
+    overflow: hidden;
+}
+#about p {
+    /* background: linear-gradient(45deg, rgba(3, 20, 43, 0.5) 0%, rgba(9, 46, 20, 0.5) 100%); */
+    background-color: rgb(182, 182, 182, 0.3);
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+
+    padding: 16px 22px;
+    z-index: 1;
+}
+.text_shadow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+h1.main_title {
+    font-size: 60pt;
+    z-index: 2;
+    position: relative;
+
+
+    /* --shadow: rgba(0, 0, 0, 0.3);
+    text-shadow:
+        1px 1px 0 var(--shadow),
+        2px 2px 0 var(--shadow),
+        3px 3px 0 var(--shadow),
+        4px 4px 0 var(--shadow),
+        5px 5px 0 var(--shadow); */
+}
+/* FB */
+#schedule {
+    /* background-color: rgb(104, 27, 27); */
+}
+.facebook_test {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 5px;
+    opacity: 0.8;
+}
+.facebook_test:hover,
+.facebook_test:focus-visible {
+    opacity: 1;
+    background-color: rgba(182, 182, 182, 0.3);
+    border-color: transparent;
+}
+.facebook_test:hover .text,
+.facebook_test:focus-visible .text {
+    mix-blend-mode: screen !important;
+}
+.fb-page {
+    min-height: 600px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Footer */
+#footer {
+    background-color: rgb(22, 22, 22);
+    padding: 32px 0;
+}
+
+/* Mobile layout */
+@media screen and (max-width: 900px) {
+    .main_inner {
+        flex-direction: column;
+    }
+    #main {
+        padding-top: 120px;
+    }
+    #main .col {
+        width: 100%;
+        padding: 16px;
+    }
+}
+
+/* Extra small */
+@media screen and (max-width: 400px) {
+    h1.main_title {
+        font-size: 54pt;
+    }
 }

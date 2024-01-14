@@ -5,42 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CF Exotic Pet Expos</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="/styles.css">
+
+    <!-- JS -->
+    <script src="/script.js" defer></script>
 </head>
 <body>
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" nonce="nDjnkny0"></script>
+
     <!-- Navigation -->
     <nav id="nav">
-        <div class="container">
+        <div class="container flex">
+            <a href="/" id="logo">CF</a>
             <div class="nav_list">
                 <a href="/#about">About</a>
                 <a href="/#schedule">Schedule</a>
-                <a href="/#more">Related/More</a>
+                <a href="/#more">Other shows</a>
             </div>
             <button id="cta">
-                Call to Action
+                <span>Call to Action</span>
             </button>
         </div>
     </nav>
 
     <!-- Landing section -->
     <main id="main">
-        <div class="container">
+        <div class="main_inner container flex">
             <!-- About -->
             <div class="col" id="about">
+                <h1 class="main_title text_shadow">CF Exotic<br/>Pet Expos</h1>
 
+                <p class="text_shadow">
+                    Check here for updates for the Jackson TN exotic bird fair, held at the Jackson TN fairgrounds. The following is placeholder text: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+
+                <div class="flex" id="socials">
+                    <div class="item"></div>
+                </div>
             </div>
 
             <!-- Feed -->
             <div class="col" id="schedule">
+                <h3>Find our schedule on Facebook</h3>
+                <div class="fb-page" data-href="https://www.facebook.com/Jacksontnbirdfair/" data-tabs="timeline" data-width="450" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Jacksontnbirdfair/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Jacksontnbirdfair/">CF exotic pet expos</a></blockquote></div>
 
+                <a href="#" class="facebook_test">
+                    <span class="text">Find us on Facebook -></span>
+                </a>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
     <footer id="footer">
-        <div class="container">
-            footer
+        <div class="container flex">
+            <div class="col">
+                <strong>Nav</strong>
+            </div>
+            <div class="col">
+                <strong>Col2</strong><br/>
+                <a href="#">Whatever</a><br/>
+                <a href="#">Whatever</a><br/>
+                <a href="#">Whatever</a><br/>
+            </div>
         </div>
     </footer>
 </body>
