@@ -7,5 +7,5 @@ addEventListener("scroll", event => {
     style(nav, "nav_opaque", (scrollY > 50));
 
     // Parallax
-    main.style.backgroundPositionY = `-${scrollY/3}px`;
+    main.style.backgroundPositionY = `${scrollY/2}px`;
 });

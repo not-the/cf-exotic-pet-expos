@@ -10,13 +10,15 @@
     --font-header: 'DM Serif Display', Serif;
     --font-body: 'Montserrat', 'Segoe UI', sans-serif;
 
+    --bg-transparent-lighter: rgba(182, 182, 182, 0.3);
+    
     /* --bg: white;
 
     --text: black;
     --alt-text: gray;
     --link: green; */
 
-    --border: rgba(75, 75, 75, 0.8);
+    --border: rgba(128, 128, 128, 0.8);
     --accent: rgb(0, 110, 255);
     --accent-light: hsl(from var(--accent) h s 64%); 
 }
@@ -24,19 +26,29 @@
 * { box-sizing: border-box; margin: 0; }
 body {
     margin: 0;
-    font-size: 13pt;
+    font-size: 12pt;
     font-family: var(--font-body);
     font-weight: 250;
 
     color: white;
     /* background-color: #24263b; */
-    background-color: black;
+    /* background-color: black; */
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-header);
-    line-height: 1.1em;
+    line-height: 1.05em;
     margin-bottom: 10px;
     font-weight: 500;
+}
+a {
+    color: var(--accent);
+    font-weight: 400;
+}
+hr {
+    margin-top: 20px;
+    border: none;
+    height: 1px;
+    background-color: rgb(95, 95, 95);
 }
 button {
     font-family: var(--font-body);
@@ -59,27 +71,25 @@ button:focus-visible {
     /* transform: scale(1.05, 1.05); */
     color: black;
 }
-button > span { z-index: 2; }
+button > span { position: relative; z-index: 2; }
 button::before {
     content: "";
     position: absolute;
-    /* z-index: -1; */
     top:0;right:0;bottom:0;left:0;
-    transform: none;
+    border: 40px solid var(--accent);
 
     background-color: var(--accent);
     /* opacity: 0; */
-    transition-property: transform, opacity;
-    transition-duration: 0.2s;
+    transition-property: opacity, border-width;
+    transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 button:hover::before,
 button:focus-visible::before {
-    transform: scale(0.3);
-    /* opacity: 1; */
-    transition-duration: 0.1s;
-    /* mix-blend-mode: screen; */
+    border: none;
+    opacity: 0;
+    transition-duration: 0.2s;
 }
 
 /* Shorthand */
@@ -157,7 +167,7 @@ button:focus-visible::before {
     z-index: -1;
     opacity: 0;
 
-    width: 100px;
+    width: 100%;
     height: 70px;
     background: radial-gradient(ellipse at center, var(--accent-light) 0%, rgba(32, 128, 255, 0.25) 50%, transparent 70%);
 
@@ -165,20 +175,21 @@ button:focus-visible::before {
 }
 .nav_list a:hover::before,
 .nav_list a:focus-visible::before {
-    opacity: 0.15;
+    opacity: 0.2;
     transition: opacity, 0.2s ease;
 }
 #nav #cta {
     margin-left: auto;
 }
 
+
 /* Main */
 #main {
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.83) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%),
-        url(/images/placeholder.jpg);
+        url(/assets/images/budgie-2201256_1280_edit.jpg);
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-size: cover;
     background-repeat: no-repeat;
     will-change: background-position-y;
@@ -207,14 +218,16 @@ button:focus-visible::before {
     padding-right: 30px;
     overflow: hidden;
 }
-#about p {
+#about .blurb {
     /* background: linear-gradient(45deg, rgba(3, 20, 43, 0.5) 0%, rgba(9, 46, 20, 0.5) 100%); */
-    background-color: rgb(182, 182, 182, 0.3);
+    background-color: var(--bg-transparent-lighter);
     -webkit-backdrop-filter: blur(50px);
     backdrop-filter: blur(50px);
     border-radius: 10px;
     border: 1px solid var(--border);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+
+    font-size: 13pt;
 
     padding: 16px 22px;
     z-index: 1;
@@ -224,6 +237,7 @@ button:focus-visible::before {
 }
 h1.main_title {
     font-size: 60pt;
+    margin-bottom: 20px;
     z-index: 2;
     position: relative;
 
@@ -236,36 +250,66 @@ h1.main_title {
         4px 4px 0 var(--shadow),
         5px 5px 0 var(--shadow); */
 }
+/* Socials */
+#socials {
+    margin-top: 25px;
+    display: flex;
+}
+.social_item {
+    width: 100%;
+
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+}
+.social_item:not(:last-of-type) { margin-right: 15px; }
+.social_item > div {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+.social_item:hover > div,
+.social_item:focus-visible > div {
+    background-color: var(--bg-transparent-lighter);
+    border-color: white;
+    transition-duration: 0.1s;
+}
+.social_item img {
+    height: 32px; width: 32px;
+    margin-right: 15px;
+}
+
+*:target {
+    box-shadow: inset 0 0 20px var(--accent);
+    outline: 4px solid var(--accent);
+    border-radius: 10px;
+}
+
+
 /* FB */
 #schedule {
     /* background-color: rgb(104, 27, 27); */
 }
-.facebook_test {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    color: white;
-    text-decoration: none;
-    border: 1px solid rgb(182, 182, 182);
-    border-radius: 5px;
-    opacity: 0.8;
-}
-.facebook_test:hover,
-.facebook_test:focus-visible {
-    opacity: 1;
-    background-color: rgba(182, 182, 182, 0.3);
-    border-color: transparent;
-}
-.facebook_test:hover .text,
-.facebook_test:focus-visible .text {
-    mix-blend-mode: screen !important;
-}
+
 .fb-page {
     min-height: 600px;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 10px;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
     overflow: hidden;
+}
+.fb-page > span {
+    display: block;
+    margin: 0 auto;
 }
 
 /* Footer */
@@ -273,12 +317,19 @@ h1.main_title {
     background-color: rgb(22, 22, 22);
     padding: 32px 0;
 }
+#footer a {
+    display: block;
+
+}
 
 /* Mobile layout */
 @media screen and (max-width: 900px) {
-    .main_inner {
-        flex-direction: column;
+    .mobile_column { flex-direction: column; }
+    .mobile_column .col {
+        margin-bottom: 20px;
     }
+
+    /* Main */
     #main {
         padding-top: 120px;
     }
@@ -286,6 +337,8 @@ h1.main_title {
         width: 100%;
         padding: 16px;
     }
+    /* About */
+    #socials .social_item { margin-bottom: 15px; }
 }
 
 /* Extra small */
