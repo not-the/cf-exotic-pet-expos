@@ -1,11 +1,12 @@
+function style(element, classname, state) { element.classList[state ? 'add' : 'remove'](classname); }
+
 const body = document.body,
 nav = document.getElementById("nav"),
 main = document.getElementById("main"),
 backdrop = document.getElementById("backdrop"),
 menu_button = document.getElementById("menu_button");
-function style(element, classname, state) { element.classList[state ? 'add' : 'remove'](classname); }
 
-// Menu
+// Toggle menu
 function menu(event, close=false) {
     if(close) body.classList.remove('show_menu');
     else body.classList.toggle('show_menu');
