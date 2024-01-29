@@ -32,6 +32,10 @@
                 background-color: var(--bg-transparent);
                 border-color: var(--border);
             }
+
+            /* Events */
+            .events_wrapper { -ms-overflow-style: initial !important; scrollbar-width: initial !important; }
+            .events_wrapper::-webkit-scrollbar { display: initial !important; }
         </style>
     </noscript>
 
@@ -43,7 +47,7 @@
     <div id="backdrop"></div>
 
     <!-- Navigation -->
-    <nav id="nav">
+    <nav id="nav" class="theme_dark">
         <div class="container flex">
             <!-- Menu button -->
             <img src="./assets/icon/menu.svg" alt="Menu" role="button" id="menu_button"/>
@@ -54,19 +58,19 @@
             <!-- Links -->
             <div class="nav_list">
                 <a href="./#about">About</a>
-                <a href="./#schedule">Schedule</a>
-                <a href="./#shows">More shows</a>
+                <a href="./#events">Events</a>
+                <a href="./#attendees">Attendees</a>
             </div>
 
             <!-- Call to action -->
-            <button id="cta">
-                <span>Placeholder</span>
-            </button>
+            <a id="cta" href="./#events" class="button">
+                <span>Find an Event</span>
+            </a>
         </div>
     </nav>
 
     <!-- Landing section -->
-    <main id="main">
+    <main id="main" class="theme_dark">
         <div class="main_inner container flex mobile_column">
             <!-- About -->
             <div class="col" id="about">
@@ -74,7 +78,7 @@
 
                 <div class="flex" style="margin-bottom: 15px;">
                     <img src="./assets/icon/pin-48.svg" alt="Location" class="icon" style="width:22px; height:22px; margin-right:10px;">
-                    <p>Jackson, TN</p>
+                    <p>Based out of Jackson, TN</p>
                 </div>
 
                 <p class="blurb text_shadow">
@@ -105,8 +109,8 @@
 
             <!-- Feed -->
             <div class="col" id="schedule">
-                <h4>Find an event:</h4>
-                <div class="fb-page" data-href="https://www.facebook.com/Jacksontnbirdfair/" data-tabs="timeline" data-width="450" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Jacksontnbirdfair/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Jacksontnbirdfair/" rel="noopener noreferrer">CF exotic pet expos</a></blockquote></div>
+                <!-- <h4>Find an event:</h4>
+                <div class="fb-page" data-href="https://www.facebook.com/Jacksontnbirdfair/" data-tabs="timeline" data-width="450" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Jacksontnbirdfair/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Jacksontnbirdfair/" rel="noopener noreferrer">CF exotic pet expos</a></blockquote></div> -->
 
                 <!-- Experiment -->
                 <!-- <div class="fb-page">
@@ -133,15 +137,215 @@
         </div>
     </main>
 
+    <h3 class="container theme_dark" style="margin-bottom: 15px; margin-top: -90px;">Upcoming Events:</h3>
+    <div class="events_wrapper">
+        <section id="events" class="container">
+            <div class="events_inner">
+                <div class="item" style="--image: url(./assets/images/placeholder.jpg)">
+                    <strong class="flex">
+                        Jackson TN Exotic Pet Expo February 17 & 18, 2024
+                    </strong>
+
+                    <span class="date flex">
+                        <img src="./assets/icon/event_FILL1_wght400_GRAD200_opsz20.svg" alt="Location" class="icon">
+                        SATURDAY, FEBRUARY 17, 2024 AT 9:00 AM CST
+                    </span>
+                    <span>
+                        <img src="./assets/icon/pin-48.svg" alt="Location" class="icon">Jackson Fairgrounds
+                    </span>
+                    <a href="https://www.facebook.com/events/362235526459861/" class="flex" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"></div>
+                        More info
+                    </a>
+                </div>
+        
+                <div class="item">
+                    <strong class="flex">
+                        Jackson TN Exotic Pet Expo February 17 & 18, 2024
+                    </strong>
+
+                    <span class="date flex">
+                        <img src="./assets/icon/event_FILL1_wght400_GRAD200_opsz20.svg" alt="Location" class="icon">
+                        SATURDAY, FEBRUARY 17, 2024 AT 9:00 AM CST
+                    </span>
+                    <span>
+                        <img src="./assets/icon/pin-48.svg" alt="Location" class="icon">Jackson Fairgrounds
+                    </span>
+                    <a href="https://www.facebook.com/events/362235526459861/" class="flex" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"></div>
+                        More info
+                    </a>
+                </div>
+                <div class="item">
+                    <strong class="flex">
+                        Jackson TN Exotic Pet Expo February 17 & 18, 2024
+                    </strong>
+
+                    <span class="date flex">
+                        <img src="./assets/icon/event_FILL1_wght400_GRAD200_opsz20.svg" alt="Location" class="icon">
+                        SATURDAY, FEBRUARY 17, 2024 AT 9:00 AM CST
+                    </span>
+                    <span>
+                        <img src="./assets/icon/pin-48.svg" alt="Location" class="icon">Jackson Fairgrounds
+                    </span>
+                    <a href="https://www.facebook.com/events/362235526459861/" class="flex" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"></div>
+                        More info
+                    </a>
+                </div>
+                <div class="item">
+                    <strong class="flex">
+                        Jackson TN Exotic Pet Expo February 17 & 18, 2024
+                    </strong>
+
+                    <span class="date flex">
+                        <img src="./assets/icon/event_FILL1_wght400_GRAD200_opsz20.svg" alt="Location" class="icon">
+                        SATURDAY, FEBRUARY 17, 2024 AT 9:00 AM CST
+                    </span>
+                    <span>
+                        <img src="./assets/icon/pin-48.svg" alt="Location" class="icon">Jackson Fairgrounds
+                    </span>
+                    <a href="https://www.facebook.com/events/362235526459861/" class="flex" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"></div>
+                        More info
+                    </a>
+                </div>
+                <div class="item">
+                    <strong class="flex">
+                        Jackson TN Exotic Pet Expo February 17 & 18, 2024
+                    </strong>
+
+                    <span class="date flex">
+                        <img src="./assets/icon/event_FILL1_wght400_GRAD200_opsz20.svg" alt="Location" class="icon">
+                        SATURDAY, FEBRUARY 17, 2024 AT 9:00 AM CST
+                    </span>
+                    <span>
+                        <img src="./assets/icon/pin-48.svg" alt="Location" class="icon">Jackson Fairgrounds
+                    </span>
+                    <a href="https://www.facebook.com/events/362235526459861/" class="flex" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"></div>
+                        More info
+                    </a>
+                </div>
+                <div class="item">
+                    <strong class="flex">
+                        Jackson TN Exotic Pet Expo February 17 & 18, 2024
+                    </strong>
+
+                    <span class="date flex">
+                        <img src="./assets/icon/event_FILL1_wght400_GRAD200_opsz20.svg" alt="Location" class="icon">
+                        SATURDAY, FEBRUARY 17, 2024 AT 9:00 AM CST
+                    </span>
+                    <span>
+                        <img src="./assets/icon/pin-48.svg" alt="Location" class="icon">Jackson Fairgrounds
+                    </span>
+                    <a href="https://www.facebook.com/events/362235526459861/" class="flex" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"></div>
+                        More info
+                    </a>
+                </div>
+
+                <div class="spacer"> </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Extra -->
-    <section class="container" id="shows">
+    <section class="container" id="attendees">
+        <table>
+            <tr>
+                <th>Expo</th>
+                <th>Number of tables</th>
+            </tr>
+            <tr>
+                <td>Jan 6-7 Hattiesburg MS</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Jan 27-28 Southaven MS*</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Feb 17-18 Jackson TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Feb 24-25 Murfreesboro TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>April 6-7 Chattanooga TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>April 13-14 Philadelphia MS</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>May 4-5 Huntsville AL</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>May 18-19 Hattiesburg MS</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>May 25-26 Paducah KY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>June 15-16 Chattanooga TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>June 29-30 Southaven MS*</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>July 13-14 Murfreesboro TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Aug 17-18 Jackson TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sept 7-8 Chattanooga TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sept 14-15 Paducah KY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sept 21-22 Philadelphia MS</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sept 28-29 Mobile AL</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Oct 19-20 Jackson TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Nov 2-3 Murfreesboro TN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Nov 16-17 Huntsville AL</td>
+                <td></td>
+            </tr>
+        </table>
+
         <p>
             Images, USARK badge (if applicable), etc. could go here
         </p><br/>
 
-        <h2>Placeholder</h2>
+        <h2>Attendees</h2>
         <p>
-            Links to related websites/other shows could go here.
+            PLACEHOLDER: (A list of stands that regularly participate in the expo could go here)
         </p><br/>
 
         <h2>Contact</h2>
@@ -161,8 +365,8 @@
             <div class="col">
                 <strong>Navigation</strong><br/>
                 <a href="./#about">About</a><br/>
-                <a href="./#schedule">Schedule</a><br/>
-                <a href="./#shows">Other shows</a><br/>
+                <a href="./#events">Events</a><br/>
+                <a href="./#attendees">Attendees</a><br/>
             </div>
             <div class="col">
                 <strong>Attribution</strong><br/>

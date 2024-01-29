@@ -21,6 +21,7 @@ backdrop.addEventListener("click", menu);
 function scrollHandler(event) {
     let scrollY = document.documentElement.scrollTop || document.body.scrollTop;
     style(nav, "nav_opaque", (scrollY > 50));
+    style(nav, "theme_dark", (scrollY <= 50));
 
     // Parallax
     main.style.backgroundPositionY = `${scrollY/2}px`;
